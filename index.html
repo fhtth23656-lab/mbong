@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">我的博客 - 思考 · 技术 · 生活</title>
 <meta name="description" id="pageDesc" content="一个关于技术、思考和生活的个人博客">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg-primary:#fafaf9;--bg-secondary:#ffffff;--bg-card:rgba(255,255,255,0.72);--bg-glass:rgba(250,250,249,0.72);--text-primary:#1c1917;--text-secondary:#57534e;--text-muted:#a8a29e;--border-color:rgba(214,211,209,0.6);--accent:#b45309;--accent-light:rgba(180,83,9,0.1);--accent-gradient:linear-gradient(135deg,#b45309,#d97706,#f59e0b);--tag-bg:#f5f5f4;--tag-text:#57534e;--shadow-sm:0 1px 2px rgba(0,0,0,0.04);--shadow-md:0 4px 20px rgba(0,0,0,0.06);--shadow-lg:0 8px 40px rgba(0,0,0,0.08);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--font-display:'DM Serif Display','Noto Serif SC',serif;--font-body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--font-mono:'JetBrains Mono',monospace;--max-width:720px;--header-height:64px;--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+:root{--bg-primary:#fafaf9;--bg-secondary:#ffffff;--bg-card:rgba(255,255,255,0.72);--bg-glass:rgba(250,250,249,0.72);--text-primary:#1c1917;--text-secondary:#57534e;--text-muted:#a8a29e;--border-color:rgba(214,211,209,0.6);--accent:#b45309;--accent-light:rgba(180,83,9,0.1);--accent-gradient:linear-gradient(135deg,#b45309,#d97706,#f59e0b);--tag-bg:#f5f5f4;--tag-text:#57534e;--shadow-sm:0 1px 2px rgba(0,0,0,0.04);--shadow-md:0 4px 20px rgba(0,0,0,0.06);--shadow-lg:0 8px 40px rgba(0,0,0,0.08);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--font-display:'Noto Serif SC','STSong','SimSun',serif;--font-body:'-apple-system','BlinkMacSystemFont','Segoe UI','PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;--font-mono:'Consolas','Monaco','Courier New',monospace;--max-width:720px;--header-height:64px;--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
 [data-theme="dark"]{--bg-primary:#0c0a09;--bg-secondary:#1c1917;--bg-card:rgba(28,25,23,0.72);--bg-glass:rgba(12,10,9,0.72);--text-primary:#e7e5e4;--text-secondary:#a8a29e;--text-muted:#57534e;--border-color:rgba(41,37,36,0.8);--accent:#f59e0b;--accent-light:rgba(245,158,11,0.12);--tag-bg:#292524;--tag-text:#a8a29e;--shadow-sm:0 1px 2px rgba(0,0,0,0.2);--shadow-md:0 4px 20px rgba(0,0,0,0.3);--shadow-lg:0 8px 40px rgba(0,0,0,0.4)}
 /* ===== Color Schemes ===== */
 [data-color-scheme="warm"]{--accent:#b45309;--accent-light:rgba(180,83,9,0.1);--accent-gradient:linear-gradient(135deg,#b45309,#d97706,#f59e0b)}
@@ -92,7 +90,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .post-item:nth-child(8){animation-delay:0.8s}
 .post-item:hover{border-color:var(--accent);box-shadow:var(--shadow-md);transform:translateX(4px)}
 .post-item h3{font-family:var(--font-display);font-size:1.125rem;font-weight:600;line-height:1.4;letter-spacing:-0.01em;margin-bottom:8px;color:var(--text-primary)}
-.post-item .excerpt{color:var(--text-secondary);font-size:0.875rem;line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.post-item .excerpt{color:var(--text-secondary);font-size:0.875rem;line-height:1.6;margin-bottom:12px;display:-webkit-box;display:box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;box-orient:vertical;overflow:hidden}
 .post-item .post-meta{font-size:0.75rem}
 .cms-actions{display:none;gap:6px;position:absolute;top:8px;right:8px;z-index:10}
 .cms-actions.visible{display:flex}
@@ -272,11 +270,28 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .admin-stat{text-align:center}
 .admin-stat .number{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
 .admin-stat .label{font-size:0.8rem;color:var(--text-muted);margin-top:4px}
+.articles-page{display:none;padding:40px 0 60px}
+.articles-page.visible{display:block}
+.articles-page .back-link{display:inline-flex;align-items:center;gap:6px;font-size:0.875rem;color:var(--text-muted);text-decoration:none;cursor:pointer;margin-bottom:32px;transition:color var(--transition);background:none;border:none;font-family:var(--font-body)}
+.articles-page .back-link:hover{color:var(--accent)}
+.articles-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px}
+.articles-header h1{font-family:var(--font-display);font-size:1.75rem;font-weight:600;color:var(--text-primary)}
+.articles-count{font-size:0.9rem;color:var(--text-muted)}
+.articles-filters{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px;padding:16px;border-radius:var(--radius-md);background:var(--bg-card);border:1px solid var(--border-color)}
+.articles-search{flex:1;min-width:200px;max-width:320px;padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-body);font-size:0.875rem;outline:none;transition:border-color var(--transition)}
+.articles-search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
+.articles-search::placeholder{color:var(--text-muted)}
+.articles-filter-select{padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-body);font-size:0.875rem;outline:none;transition:border-color var(--transition)}
+.articles-filter-select:focus{border-color:var(--accent)}
+.articles-grid{display:grid;gap:20px}
+.articles-empty{text-align:center;padding:64px 24px;color:var(--text-muted)}
+.articles-empty .icon{font-size:3rem;margin-bottom:16px}
+.articles-empty p{font-size:0.95rem}
 </style>
 </head>
 <body>
 <button class="floating-btn theme-toggle" id="themeToggle" aria-label="切换主题"><span id="themeIcon">☀️</span></button>
-<button class="floating-btn cms-toggle" id="cmsToggle" aria-label="文章管理" title="文章管理">✏️</button>
+<button class="floating-btn cms-toggle" id="cmsToggle" aria-label="文章管理" title="文章管理" onclick="showAdmin()">✏️</button>
 <button class="floating-btn settings-toggle" id="settingsToggle" aria-label="博客设置" title="博客设置">⚙️</button>
 <div class="toast-container" id="toastContainer"></div>
 
@@ -448,9 +463,9 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       <span class="cms-badge" id="cmsBadge"><span class="dot"></span> 管理模式</span>
       <ul class="nav-links">
         <li><a class="active" onclick="showHome()">首页</a></li>
-        <li><a onclick="showHome()">文章</a></li>
+        <li><a onclick="showArticles()">文章</a></li>
         <li><a onclick="showHome()">关于</a></li>
-        <li><a class="cms-link" id="cmsNavLink">✏️ 管理</a></li>
+        <li><a class="cms-link" id="cmsNavLink" onclick="showAdmin()">✏️ 管理</a></li>
       </ul>
     </div>
   </nav>
@@ -475,7 +490,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     <section id="featuredSection">
       <div class="section-header">
         <h2 class="section-title">精选文章 <span class="count">· 推荐阅读</span></h2>
-        <a class="section-more" id="featuredMore">查看全部 →</a>
+        <a class="section-more" id="featuredMore" onclick="showArticles()">查看全部 →</a>
       </div>
       <div id="featuredContainer"></div>
     </section>
@@ -584,6 +599,35 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       <div class="icon">📭</div>
       <p>暂无文章</p>
       <button class="btn btn-primary" onclick="openModal(null)">添加第一篇文章</button>
+    </div>
+  </div>
+
+  <div class="articles-page" id="articlesPage">
+    <button class="back-link" onclick="showHome()">← 返回首页</button>
+    
+    <div class="articles-header">
+      <h1>📚 全部文章</h1>
+      <span class="articles-count" id="articlesCount">0 篇文章</span>
+    </div>
+
+    <div class="articles-filters">
+      <input type="text" id="articlesSearch" class="articles-search" placeholder="搜索文章标题、摘要、标签..." oninput="renderArticles()">
+      <select id="articlesFilter" class="articles-filter-select" onchange="renderArticles()">
+        <option value="all">全部文章</option>
+        <option value="featured">精选文章</option>
+        <option value="normal">普通文章</option>
+      </select>
+      <select id="articlesSort" class="articles-filter-select" onchange="renderArticles()">
+        <option value="newest">最新发布</option>
+        <option value="oldest">最早发布</option>
+      </select>
+    </div>
+
+    <div class="articles-grid" id="articlesGrid"></div>
+
+    <div class="articles-empty" id="articlesEmpty" style="display:none">
+      <div class="icon">📭</div>
+      <p>暂无文章</p>
     </div>
   </div>
 </main>
@@ -850,6 +894,50 @@ function showAdmin(){
   document.getElementById('articleReader').classList.remove('visible');
   document.getElementById('adminPage').classList.add('visible');
   renderAdmin();
+}
+function showArticles(){
+  document.getElementById('homePage').classList.add('hidden');
+  document.getElementById('articleReader').classList.remove('visible');
+  document.getElementById('adminPage').classList.remove('visible');
+  document.getElementById('articlesPage').classList.add('visible');
+  renderArticles();
+}
+function renderArticles(){
+  var search=document.getElementById('articlesSearch').value.trim().toLowerCase();
+  var filter=document.getElementById('articlesFilter').value;
+  var sort=document.getElementById('articlesSort').value;
+  var filtered=posts.slice();
+  if(search){
+    filtered=filtered.filter(function(p){
+      return p.title.toLowerCase().includes(search)||
+             p.excerpt.toLowerCase().includes(search)||
+             p.tags.some(function(t){return t.toLowerCase().includes(search)});
+    });
+  }
+  if(filter==='featured'){
+    filtered=filtered.filter(function(p){return p.featured});
+  }else if(filter==='normal'){
+    filtered=filtered.filter(function(p){return !p.featured});
+  }
+  if(sort==='newest'){
+    filtered.sort(function(a,b){return new Date(b.date)-new Date(a.date)});
+  }else{
+    filtered.sort(function(a,b){return new Date(a.date)-new Date(b.date)});
+  }
+  document.getElementById('articlesCount').textContent=filtered.length+' 篇文章';
+  var grid=document.getElementById('articlesGrid');
+  var empty=document.getElementById('articlesEmpty');
+  if(filtered.length===0){
+    grid.innerHTML='';
+    empty.style.display='block';
+  }else{
+    empty.style.display='none';
+    grid.innerHTML=filtered.map(function(p){
+      var tags=p.tags.map(function(t){return '<span class="post-tag">'+esc(t)+'</span>'}).join('');
+      var featuredBadge=p.featured?'<span class="featured-badge">⭐ 精选</span>':'';
+      return '<article class="post-item" onclick="readPost(\''+p.id+'\')"><h3>'+esc(p.title)+'</h3><p class="excerpt">'+esc(p.excerpt)+'</p><div class="post-meta"><span class="date">'+fmtDate(p.date)+'</span><span class="sep"></span><span>'+p.readTime+' 分钟</span><span class="sep"></span><div class="post-tags">'+tags+'</div></div>'+featuredBadge+'</article>';
+    }).join('');
+  }
 }
 function renderAdmin(){
   var search=document.getElementById('adminSearch').value.trim().toLowerCase();
