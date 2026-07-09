@@ -219,6 +219,59 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .custom-color-row input[type="color"]{width:44px;height:44px;border-radius:var(--radius-sm);border:1px solid var(--border-color);cursor:pointer;padding:2px;background:var(--bg-primary)}
 .custom-color-row input[type="text"]{flex:1}
 .settings-hint{font-size:0.75rem;color:var(--text-muted);margin-top:4px}
+/* ===== Admin Page Styles ===== */
+.admin-page{display:none;padding:40px 0 60px}
+.admin-page.visible{display:block}
+.admin-page .back-link{display:inline-flex;align-items:center;gap:6px;font-size:0.875rem;color:var(--text-muted);text-decoration:none;cursor:pointer;margin-bottom:32px;transition:color var(--transition);background:none;border:none;font-family:var(--font-body)}
+.admin-page .back-link:hover{color:var(--accent)}
+.admin-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px}
+.admin-header h1{font-family:var(--font-display);font-size:1.75rem;font-weight:600;color:var(--text-primary)}
+.admin-header .admin-actions{display:flex;gap:10px}
+.admin-filters{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px;padding:16px;border-radius:var(--radius-md);background:var(--bg-card);border:1px solid var(--border-color)}
+.admin-search{flex:1;min-width:200px;max-width:320px;padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-body);font-size:0.875rem;outline:none;transition:border-color var(--transition)}
+.admin-search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
+.admin-search::placeholder{color:var(--text-muted)}
+.admin-filter-select{padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-body);font-size:0.875rem;outline:none;transition:border-color var(--transition)}
+.admin-filter-select:focus{border-color:var(--accent)}
+.admin-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border-color);background:var(--bg-card)}
+.admin-table th{padding:14px 16px;text-align:left;font-size:0.8rem;font-weight:600;color:var(--text-secondary);letter-spacing:0.02em;background:var(--bg-glass);border-bottom:1px solid var(--border-color);white-space:nowrap}
+.admin-table th:first-child{width:40px}
+.admin-table th.title-col{width:auto}
+.admin-table th.tags-col{width:180px}
+.admin-table th.date-col{width:140px}
+.admin-table th.actions-col{width:120px}
+.admin-table td{padding:14px 16px;border-bottom:1px solid var(--border-color);font-size:0.875rem}
+.admin-table tbody tr:hover{background:var(--accent-light)}
+.admin-table tbody tr:last-child td{border-bottom:none}
+.admin-checkbox{width:18px;height:18px;border-radius:4px;border:2px solid var(--border-color);cursor:pointer;transition:all var(--transition);accent-color:var(--accent)}
+.admin-checkbox:hover{border-color:var(--accent)}
+.admin-post-title{color:var(--text-primary);font-weight:500;text-decoration:none;cursor:pointer;display:block;transition:color var(--transition)}
+.admin-post-title:hover{color:var(--accent)}
+.admin-post-title.featured{font-weight:600}
+.admin-post-title.featured::before{content:'⭐';margin-right:6px;font-size:0.75rem}
+.admin-tags{display:flex;flex-wrap:wrap;gap:4px}
+.admin-tag{padding:2px 8px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-size:0.7rem;font-weight:500}
+.admin-date{color:var(--text-muted);font-size:0.8rem}
+.admin-action-btn{padding:6px 10px;border-radius:6px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-secondary);cursor:pointer;font-size:0.75rem;transition:all var(--transition);margin-right:4px}
+.admin-action-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.admin-action-btn.edit:hover{border-color:#3b82f6;color:#3b82f6;background:rgba(59,130,246,0.1)}
+.admin-action-btn.delete:hover{border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,0.1)}
+.admin-empty{text-align:center;padding:64px 24px;color:var(--text-muted)}
+.admin-empty .icon{font-size:3rem;margin-bottom:16px}
+.admin-empty p{font-size:0.95rem}
+.admin-empty button{margin-top:16px}
+.admin-batch-actions{display:none;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--radius-md);background:var(--accent-light);border:1px solid var(--accent);margin-bottom:16px}
+.admin-batch-actions.visible{display:flex}
+.admin-batch-info{font-size:0.85rem;color:var(--accent);font-weight:500}
+.admin-batch-btn{padding:8px 16px;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;cursor:pointer;border:none;font-family:var(--font-body)}
+.admin-batch-btn.danger{background:#ef4444;color:white}
+.admin-batch-btn.danger:hover{background:#dc2626}
+.admin-batch-btn.secondary{background:var(--bg-secondary);color:var(--text-secondary);border:1px solid var(--border-color)}
+.admin-batch-btn.secondary:hover{background:var(--border-color)}
+.admin-stats{display:flex;gap:24px;margin-bottom:24px;padding:20px;border-radius:var(--radius-md);background:var(--bg-card);border:1px solid var(--border-color)}
+.admin-stat{text-align:center}
+.admin-stat .number{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
+.admin-stat .label{font-size:0.8rem;color:var(--text-muted);margin-top:4px}
 </style>
 </head>
 <body>
@@ -468,6 +521,71 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     </div>
     <div class="article-reader-content" id="readerContent"></div>
   </div>
+
+  <div class="admin-page" id="adminPage">
+    <button class="back-link" onclick="showHome()">← 返回首页</button>
+    
+    <div class="admin-header">
+      <h1>📝 文章管理</h1>
+      <div class="admin-actions">
+        <button class="btn btn-secondary" onclick="showHome()">查看博客</button>
+        <button class="btn btn-primary" onclick="openModal(null)">＋ 添加文章</button>
+      </div>
+    </div>
+
+    <div class="admin-stats">
+      <div class="admin-stat">
+        <div class="number" id="adminTotalCount">0</div>
+        <div class="label">总文章数</div>
+      </div>
+      <div class="admin-stat">
+        <div class="number" id="adminFeaturedCount">0</div>
+        <div class="label">精选文章</div>
+      </div>
+      <div class="admin-stat">
+        <div class="number" id="adminTagCount">0</div>
+        <div class="label">标签总数</div>
+      </div>
+    </div>
+
+    <div class="admin-filters">
+      <input type="text" id="adminSearch" class="admin-search" placeholder="搜索文章标题、摘要、标签..." oninput="renderAdmin()">
+      <select id="adminFilter" class="admin-filter-select" onchange="renderAdmin()">
+        <option value="all">全部文章</option>
+        <option value="featured">精选文章</option>
+        <option value="normal">普通文章</option>
+      </select>
+      <select id="adminSort" class="admin-filter-select" onchange="renderAdmin()">
+        <option value="newest">最新发布</option>
+        <option value="oldest">最早发布</option>
+      </select>
+    </div>
+
+    <div class="admin-batch-actions" id="adminBatchActions">
+      <span class="admin-batch-info">已选择 <span id="adminSelectedCount">0</span> 篇文章</span>
+      <button class="admin-batch-btn secondary" onclick="deselectAllPosts()">取消选择</button>
+      <button class="admin-batch-btn danger" onclick="batchDeletePosts()">批量删除</button>
+    </div>
+
+    <table class="admin-table" id="adminTable">
+      <thead>
+        <tr>
+          <th><input type="checkbox" class="admin-checkbox" id="adminSelectAll" onchange="toggleSelectAll()"></th>
+          <th class="title-col">标题</th>
+          <th class="tags-col">标签</th>
+          <th class="date-col">发布日期</th>
+          <th class="actions-col">操作</th>
+        </tr>
+      </thead>
+      <tbody id="adminTableBody"></tbody>
+    </table>
+
+    <div class="admin-empty" id="adminEmpty" style="display:none">
+      <div class="icon">📭</div>
+      <p>暂无文章</p>
+      <button class="btn btn-primary" onclick="openModal(null)">添加第一篇文章</button>
+    </div>
+  </div>
 </main>
 <script>
 // ===== Data Layer =====
@@ -501,6 +619,7 @@ var posts=loadPosts();
 var settings=loadSettings();
 var isCms=false;
 var currentReaderId=null;
+var selectedPosts=[];
 // ===== Apply Settings =====
 function applySettings(){
   var s=settings;
@@ -723,7 +842,109 @@ function toggleFeature(id){
   post.featured=true;
   savePosts(posts);
   render();
+  renderAdmin();
   showToast('「'+post.title+'」已设为精选 ⭐','success');
+}
+function showAdmin(){
+  document.getElementById('homePage').classList.add('hidden');
+  document.getElementById('articleReader').classList.remove('visible');
+  document.getElementById('adminPage').classList.add('visible');
+  renderAdmin();
+}
+function renderAdmin(){
+  var search=document.getElementById('adminSearch').value.trim().toLowerCase();
+  var filter=document.getElementById('adminFilter').value;
+  var sort=document.getElementById('adminSort').value;
+  var filtered=posts.slice();
+  if(search){
+    filtered=filtered.filter(function(p){
+      return p.title.toLowerCase().includes(search)||
+             p.excerpt.toLowerCase().includes(search)||
+             p.tags.some(function(t){return t.toLowerCase().includes(search)});
+    });
+  }
+  if(filter==='featured'){
+    filtered=filtered.filter(function(p){return p.featured});
+  }else if(filter==='normal'){
+    filtered=filtered.filter(function(p){return !p.featured});
+  }
+  filtered.sort(function(a,b){
+    return sort==='newest'?new Date(b.date)-new Date(a.date):new Date(a.date)-new Date(b.date);
+  });
+  document.getElementById('adminTotalCount').textContent=posts.length;
+  document.getElementById('adminFeaturedCount').textContent=posts.filter(function(p){return p.featured}).length;
+  document.getElementById('adminTagCount').textContent=tagCount(posts);
+  var tbody=document.getElementById('adminTableBody');
+  var empty=document.getElementById('adminEmpty');
+  if(filtered.length===0){
+    tbody.innerHTML='';
+    empty.style.display='block';
+    document.getElementById('adminTable').style.display='none';
+    document.getElementById('adminBatchActions').classList.remove('visible');
+  }else{
+    empty.style.display='none';
+    document.getElementById('adminTable').style.display='table';
+    tbody.innerHTML=filtered.map(function(p){
+      var tags=p.tags.map(function(t){return '<span class="admin-tag">'+esc(t)+'</span>'}).join('');
+      var isSelected=selectedPosts.includes(p.id);
+      return '<tr><td><input type="checkbox" class="admin-checkbox" '+
+             (isSelected?'checked':'')+' onchange="toggleSelectPost(\''+p.id+'\')"></td>'+
+             '<td><span class="admin-post-title '+
+             (p.featured?'featured':'')+'" onclick="readPost(\''+p.id+'\')">'+esc(p.title)+'</span></td>'+
+             '<td><div class="admin-tags">'+tags+'</div></td>'+
+             '<td><span class="admin-date">'+fmtDate(p.date)+'</span></td>'+
+             '<td><button class="admin-action-btn edit" onclick="editPost(\''+p.id+'\')" title="编辑">✏️</button>'+
+             '<button class="admin-action-btn delete" onclick="deletePost(\''+p.id+'\')" title="删除">🗑️</button></td></tr>';
+    }).join('');
+    updateBatchActions();
+  }
+}
+function toggleSelectPost(id){
+  var idx=selectedPosts.indexOf(id);
+  if(idx===-1){
+    selectedPosts.push(id);
+  }else{
+    selectedPosts.splice(idx,1);
+  }
+  updateBatchActions();
+}
+function toggleSelectAll(){
+  var checkbox=document.getElementById('adminSelectAll');
+  var search=document.getElementById('adminSearch').value.trim().toLowerCase();
+  var filter=document.getElementById('adminFilter').value;
+  var filtered=posts.filter(function(p){
+    var matchSearch=!search||p.title.toLowerCase().includes(search)||p.excerpt.toLowerCase().includes(search)||p.tags.some(function(t){return t.toLowerCase().includes(search)});
+    var matchFilter=filter==='all'||(filter==='featured'&&p.featured)||(filter==='normal'&&!p.featured);
+    return matchSearch&&matchFilter;
+  });
+  if(checkbox.checked){
+    selectedPosts=filtered.map(function(p){return p.id});
+  }else{
+    selectedPosts=[];
+  }
+  renderAdmin();
+}
+function deselectAllPosts(){
+  selectedPosts=[];
+  document.getElementById('adminSelectAll').checked=false;
+  renderAdmin();
+}
+function updateBatchActions(){
+  var batch=document.getElementById('adminBatchActions');
+  var count=document.getElementById('adminSelectedCount');
+  count.textContent=selectedPosts.length;
+  batch.classList.toggle('visible',selectedPosts.length>0);
+}
+function batchDeletePosts(){
+  if(selectedPosts.length===0)return;
+  if(!confirm('确定要删除选中的 '+selectedPosts.length+' 篇文章吗？此操作不可恢复！'))return;
+  posts=posts.filter(function(p){return !selectedPosts.includes(p.id)});
+  savePosts(posts);
+  selectedPosts=[];
+  document.getElementById('adminSelectAll').checked=false;
+  renderAdmin();
+  render();
+  showToast('已删除文章 🗑️','info');
 }
 // ===== Rich Text Editor Commands =====
 function editorCmd(cmd,val){
