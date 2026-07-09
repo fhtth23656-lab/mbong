@@ -701,8 +701,10 @@ var DEFAULT_SETTINGS = {
   customColor: '#b45309',
   theme: 'light'
 };
-function loadPosts(){try{var d=localStorage.getItem(STORAGE_KEY);if(d)return JSON.parse(d)}catch(e){}savePosts(DEFAULT_POSTS);return JSON.parse(JSON.stringify(DEFAULT_POSTS))}
-function savePosts(p){localStorage.setItem(STORAGE_KEY,JSON.stringify(p))}
+function loadPosts(){try{var d=localStorage.getItem(STORAGE_KEY);if(d)return JSON.parse(d)}catch(e){}return JSON.parse(JSON.stringify(DEFAULT_POSTS))}
+function savePosts(p){localStorage.setItem(STORAGE_KEY,JSON.stringify(p));syncPostsToServer(p)}
+function loadPostsFromServer(callback){var xhr=new XMLHttpRequest();xhr.open('GET','/api/posts',true);xhr.onload=function(){if(xhr.status===200){try{var data=JSON.parse(xhr.responseText);if(data&&data.length>0){posts=data;savePosts(data);callback&&callback()}else{syncPostsToServer(posts)}}catch(e){syncPostsToServer(posts)}}else{syncPostsToServer(posts)}};xhr.onerror=function(){syncPostsToServer(posts)};xhr.send()}
+function syncPostsToServer(p){var xhr=new XMLHttpRequest();xhr.open('POST','/api/posts',true);xhr.setRequestHeader('Content-Type','application/json');xhr.onload=function(){if(xhr.status===200){console.log('Posts synced to server')}};xhr.send(JSON.stringify(p))}
 function loadSettings(){try{var s=localStorage.getItem(SETTINGS_KEY);if(s)return JSON.parse(s)}catch(e){}saveSettings(DEFAULT_SETTINGS);return JSON.parse(JSON.stringify(DEFAULT_SETTINGS))}
 function saveSettings(s){localStorage.setItem(SETTINGS_KEY,JSON.stringify(s))}
 function genId(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
@@ -1329,7 +1331,7 @@ function showToast(msg,type){
 // ===== Init =====
 document.addEventListener('DOMContentLoaded',function(){
   applySettings();
-  render();
+  loadPostsFromServer(function(){render()});
   // Theme toggle
   document.getElementById('themeToggle').addEventListener('click',function(){
     var cur=document.documentElement.getAttribute('data-theme');
